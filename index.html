@@ -1,177 +1,151 @@
 
 <!DOCTYPE html>
-<html lang="ch ">
+<html lang="zh">
+    <head>
+        <meta charset="utf-8" />
+        <title>Zyy Web</title>
+        <meta name="author" content="Yiyang Zou" />
+        <meta name="description" content="欢迎进来坐一坐" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zyy Web || </title>
-    <meta name="author" content="Yiyang Zou">
-    <meta name="description" content="欢迎进来坐一坐 ">
-    <meta name="keywords" content=" ">
-    <link rel="icon" href="/images/avatar.png">
-    <link rel="stylesheet" href="/css/antd.min.css">
-    
-    <link rel="stylesheet" href="/css/full-theme.css">
-    
-    <script src="/js/vue.js"></script>
-    <script src="/js/antd.min.js"></script>
-<meta name="generator" content="Hexo 6.3.0"></head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-<body>
 
-    <div id="loading"
-        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
-        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
-        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
-        <div
-            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
-            <div id="loadcontent"
-                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
-                <div>
-                    <h2>LOADING...</h2>
-                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
-                    <div>
-                        <img src="/dancingkitty.gif" alt="loading">
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+<script src="/js/lib/home.js"></script>
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="layout">
-        <transition name="into">
-            <div v-show="show_page" style="display: none;">
-                <div id="menu_show">
-                     
-<nav id="menu">
-    <div class="desktop-menu">
-        <a href="/">
-            <span class="title">Zyy Web</span>
-        </a>
-        
-        <a href="">
-            <span>
-                <a-icon type="fig" theme="outlined" />
-            </span>
-            <span>链接文本</span>
+            </transition>
+            <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>ZYY WEB</span>
         </a>
         
         <a href="/">
-            <span>
-                <a-icon type="home" theme="filled" />
-            </span>
-            <span>home</span>
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
         </a>
         
         <a href="/about">
-            <span>
-                <a-icon type="idcard" theme="filled" />
-            </span>
-            <span>about</span>
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
         </a>
         
         <a href="/archives">
-            <span>
-                <a-icon type="folder" theme="filled" />
-            </span>
-            <span>archives</span>
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
         </a>
         
-        <a href="/like/categories">
-            <span>
-                <a-icon type="book" theme="filled" />
-            </span>
-            <span>categories</span>
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
         </a>
         
-        <a href="/like/tags">
-            <span>
-                <a-icon type="tags" theme="filled" />
-            </span>
-            <span>tags</span>
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
         </a>
         
-    </div>
-
-    <div :class="'phone-menu ' + menu_show" id="phone-menu">
-        <div :class="'title'" @click="menu_show=!menu_show">
-            <span style="margin-right: 10px;">
-                <a-icon type="appstore" theme="filled" />
-            </span>
-            <span>Zyy Web</span>
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;ZYY WEB</span>
         </div>
-        <div class="items" v-show="menu_show">
-            
-            <a href="">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="fig" theme="outlined" />
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">链接文本</div>
-                </div>
-            </a>
-            
-            <a href="/">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="home" theme="filled" />
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
-                </div>
-            </a>
-            
-            <a href="/about">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="idcard" theme="filled" />
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
-                </div>
-            </a>
-            
-            <a href="/archives">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="folder" theme="filled" />
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
-                </div>
-            </a>
-            
-            <a href="/like/categories">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="book" theme="filled" />
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
-                </div>
-            </a>
-            
-            <a href="/like/tags">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="tags" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
-                </div>
-            </a>
-            
-        </div>
-        <div class="curtain" v-show="menu_show"></div>
-    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
 
-</nav>
-                </div>
-
-                <div id="main">
-                    <div id="home-head" style=background-image:url('../home.jpg')>
-    <script>
-        var menu = document.getElementById("menu")
-        menu.className += " menu-color"
-    </script>
-     
-    <div id="home-info" class="home-info" @click="home_click">
+            <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+                <div id="home-head">
+    <div id="home-background" ref="homeBackground" data-images="/images/background.jpg"></div>
+    <div id="home-info" @click="homeClick">
         <span class="loop"></span>
         <span class="loop"></span>
         <span class="loop"></span>
@@ -184,81 +158,58 @@
             </div>
         </span>
     </div>
-     
 </div>
-
-
-
-<div id="home-posts-wrap" class=>
+<div id="home-posts-wrap" true ref="homePostsWrap">
     <div id="home-posts">
-
-        <div id="posts">
-            
-
-<div class="post">
-
-    <a href="/2023/08/06/假期总结/">
-        <h2>
-            假期总结
-        </h2>
-    </a>
-
-    <div class="category-and-date">
-
         
 
+<div class="post">
+    <a href="/2023/08/06/%E5%81%87%E6%9C%9F%E6%80%BB%E7%BB%93/">
+        <h2 class="post-title">假期总结</h2>
+    </a>
+    <div class="category-and-date">
+        
         <span class="date">
             <span class="icon">
-                <a-icon type="calendar" theme="filled" />
+                <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
             2023/8/6
         </span>
-
+        
+        
     </div>
-
-    <div class="excerpt">
+    <div class="description">
         <div class="content" v-pre>
-            
             
             
             
         </div>
     </div>
-
     <div class="post-tags">
         
         
+        
     </div>
-
-    <a href="/2023/08/06/假期总结/ " class="go-post">
-        阅读全文
-    </a>
+    <a href="/2023/08/06/%E5%81%87%E6%9C%9F%E6%80%BB%E7%BB%93/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-
     <a href="/2023/08/06/hello-world/">
-        <h2>
-            Hello World
-        </h2>
+        <h2 class="post-title">Hello World</h2>
     </a>
-
     <div class="category-and-date">
-
         
-
         <span class="date">
             <span class="icon">
-                <a-icon type="calendar" theme="filled" />
+                <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
             2023/8/6
         </span>
-
+        
+        
     </div>
-
-    <div class="excerpt">
+    <div class="description">
         <div class="content" v-pre>
-            
             
             <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
@@ -277,173 +228,87 @@
             
         </div>
     </div>
-
     <div class="post-tags">
         
         
+        
     </div>
-
-    <a href="/2023/08/06/hello-world/ " class="go-post">
-        阅读全文
-    </a>
+    <a href="/2023/08/06/hello-world/" class="go-post">阅读全文</a>
 </div>
 
 
-             
-<div class="page-current">
-
+        <div class="page-current">
     <div class="prev">
         
     </div>
-
     <div class="page-index">
-
         
-
-        <span class="current">
-            1
-        </span>
-
+        <span class="current">1</span>
         
-
     </div>
-
     <div class="next">
         
     </div>
-
 </div>
 
-        </div>
     </div>
     
     <div id="home-card">
-        <a-affix :offset-top="card_top">
-    <a-card class="card-style" style="width: 300px">
+        <div id="card-style">
+    <div id="card-div">
         <div class="avatar">
-            <img src="images/avatar.png " alt="头像">
+            <img src="/images/avatar.jpg" alt="avatar" />
         </div>
-        <div class="name">
-            Yiyang Zou
-        </div>
-        <div class="descriptions">
-            
-            <div class="description">
-                正しさなんてもの
-            </div>
-            
-            <div class="description">
-                人のモノサシによって変わる
-            </div>
-            
-        </div>
-        <div class="icon-links">
-            
-            <span class="icon-link">
-                <a target="_blank" rel="noopener" href="https://github.com/xingyueye5">
+        <div class="name">Yiyang Zou</div>
+        <div class="description">
+            <p>Description<br>…</p>
 
-                    
-                    <a-icon type="github"
-                        theme="filled" />
-                    
-                </a>
-            </span>
-            
-            <span class="icon-link">
-                <a target="_blank" rel="noopener" href="https://twitter.com/korilin_dev">
-
-                    
-                    <a-icon type="twitter"
-                        theme="" />
-                    
-                </a>
-            </span>
-            
         </div>
+        
+        
         <div class="friend-links">
             
             <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://en.korilin.com">
-                    英文技术博客
-                </a>
-            </div>
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://jp.korilin.com">
-                    日语记录博客
-                </a>
+                <a target="_blank" rel="noopener" href="https://argvchs.github.io">Argvchs</a>
             </div>
             
         </div>
-    </a-card>
-</a-affix>
+        
+    </div>
+</div>
+
     </div>
     
 </div>
-                     
-<footer id="footer">
-    <div class="footer-wrap">
+
+                <footer id="footer">
+    <div id="footer-wrap">
         <div>
-            © 2018 - 2023 Zyy Web
-            <span class="footer-icon">
-                <a-icon type="flag" theme="filled" /></span>
-            @Yiyang Zou
+            &copy;
+            2022 - 2023 Zyy Web
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Yiyang Zou
         </div>
-        <div></div>
-        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
-                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
         
     </div>
-
 </footer>
 
-<script src="/js/highlight.min.js"></script>
-<script src="/js/particle.js"></script>
-                </div>
             </div>
-        </transition>
-    </div>
-
-    <script>
-    new Vue({
-        el: "#layout",
-        data: {
-            show_page: false,
-            onload_menu: false,
-            menu_show: false,
-            card_top: 100
-        },
-        created: function () {
-            var that = this
-            window.onload = function () {
-                that.show_page = true
-                document.getElementById("loadcontent").style.opacity = 0
-                setTimeout(function () {
-                    document.getElementById("loadleft").style.width = 0
-                    document.getElementById("loadright").style.width = 0
-                }, 300)
-                setTimeout(function () {
-                    document.getElementById("loading").style = "display:none"
-                }, 600)
-            }
-        },
-        mounted: function () {
-            var that = this
-            window.addEventListener('scroll', function (e) {
-                that.menu_show = false
-            })
-        },
-        methods: {
-            home_click: function () {
-                window.scrollTo({
-                    top: window.innerHeight - 80,
-                    behavior: "smooth",
-                });
-            }
-        }
-    })
-</script>
-
-</body>
-
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+    </body>
 </html>
