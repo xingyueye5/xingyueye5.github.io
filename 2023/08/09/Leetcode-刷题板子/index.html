@@ -82,6 +82,11 @@
             <span>&ensp;Categories</span>
         </a>
         
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
         <a href="/directors">
             <i class="fa-solid fa-directors-alt fa-fw"></i>
             <span>&ensp;Directors</span>
@@ -132,6 +137,15 @@
                     </div>
                 </a>
                 
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
                 <a href="/directors">
                     <div class="item">
                         <div style="min-width: 20px; max-width: 50px; width: 10%">
@@ -163,12 +177,26 @@
         </span>
         
         
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/code/" style="color: #03a9f4">code</a>
+            </span>
+            
+        </span>
+        
     </div>
     
     <div class="content" v-pre>
-        <p>刷题板子</p>
+        <p>YIX刷题板子</p>
+<p>一些刷题板子</p>
 <span id="more"></span>
-<p>POJ上面刷题一定要注意：自己定义一个类，在自己的类里面写函数（主函数里面只能调用static函数）！！**</p>
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><p><strong>POJ上面刷题一定要注意：自己定义一个类，在自己的类里面写函数（主函数里面只能调用static函数）！！</strong></p>
 <p><strong>然后java ‘ ‘和“ ”完全不一样！！</strong></p>
 <p>实际上java里面类似C++里面的vector就是ArrayList，然后对象链表实际上可以用哈希表替代，哈希表除了不能排序以外都比较好用（比如说可以用map.getOrDefault()得到对应值）这样甚至可以替代动态规划</p>
 <ul>
@@ -339,14 +367,10 @@ void merge(int u,int v)&#123;
 <p>12、求最小值可能的思路：框定范围进行二分查找判断是否可以接收</p>
 </li>
 </ul>
-<ul>
-<li><p>注意事项：</p>
-<p>java中循环变量在循环结束后即销毁</p>
-<p>多刷一点单调栈问题</p>
-</li>
-</ul>
-<hr>
-<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><p><strong>TMD小心数组下标越界，这个不报错！！！然后memset只能0、1，pop()没有返回值，substr()是位置与长度！！</strong></p>
+<h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><p><strong>小心数组下标越界，这个不报错！！！</strong></p>
+<p><strong>然后memset只能输入0、1</strong></p>
+<p><strong>pop()没有返回值</strong></p>
+<p><strong>substr()是位置与长度！！</strong></p>
 <p>然后做题时记得检查边界条件以及末尾！！</p>
 <pre><code class="lang-C++">#include&lt;vector&gt;
 #include&lt;algorithm&gt;
@@ -445,8 +469,7 @@ sort(arr,arr+n,[&amp;](int i,int j)&#123;
 s.substr(pos,len)//跟java不一样！！！
 new_str=String(str.rbegin(),str.begin())
 </code></pre>
-<hr>
-<h3 id="算法思想分析"><a href="#算法思想分析" class="headerlink" title="算法思想分析"></a>算法思想分析</h3><ul>
+<h2 id="算法思想分析"><a href="#算法思想分析" class="headerlink" title="算法思想分析"></a>算法思想分析</h2><ul>
 <li>CSP 202212-3 关于棋盘对角线Z字形遍历问题处理：</li>
 </ul>
 <pre><code class="lang-java">for(int i=0;i&lt;2n-1;i++)
@@ -466,7 +489,7 @@ new_str=String(str.rbegin(),str.begin())
 <li>线段树与树状数组：</li>
 </ul>
 <p>树状数组： 给定区间[a,b] 用于处理多次修改值时求其中子区间和的问题。我们用中间数组V[n]记录局部和。</p>
-<p><img src="D:\Desktop\Code Blog\tree_array.png" alt="tree_array" style="zoom: 50%;" /></p>
+<p><img src="../img/tree_array.png" alt="tree_array" style="zoom: 50%;" /></p>
 <pre><code class="lang-java">int lowbit(x)&#123;return x^-x&#125;  //用于求出x内只保留末尾1的数
 //首先：对xi更新意味着我们需要对一系列Vn进行更新，然后为了求出子区间和，我们利用前缀和化成求Si的问题。
 //在位置i加k：
@@ -490,10 +513,10 @@ int getsum(int i)&#123;
 </ul>
 <p>线段相交：AB:(x1,y1) (x2,y2)  CD:(x3,y3)  (x4,y4)</p>
 <p>充要条件：</p>
-<script type="math/tex; mode=display">
-(AC \times AB)*(AD \times AB)<0, (CA \times CD)*(CB \times CD)<0\\
-或者有一个不等式=0;或者全等于0,min(x3,x4)>max(x1,x2)反过来（因为此时意味着两线段共线）\\
-注意到AC \times AB=0表示平行,<0表示AB在AC顺时针方向180^{\circ}内,>0相反</script><ul>
+<p>$1.\quad (AC \times AB)<em>(AD \times AB)&lt;0 \quad(1)\quad (CA \times CD)</em>(CB \times CD)&lt;0 \quad(2)$</p>
+<p>$2. \quad (1)或(2)式子有一个取等,或者全取等而且min(x3,x4)&gt;max(x1,x2)（此时意味着两线段共线）$</p>
+<p>$注意到AC \times AB=0表示平行,<0表示AB在AC顺时针方向180^{\circ}内,>0则相反$</p>
+<ul>
 <li>二分查找模板：(&lt;就h掉，&gt;就l增)</li>
 </ul>
 <pre><code class="lang-java">//&lt;=a 的max:
