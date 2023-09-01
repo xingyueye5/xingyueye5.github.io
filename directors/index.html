@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -9,24 +10,33 @@
     <meta name="keywords" content="网页导航">
     <meta name="description" content="单纯就是一个导航">
     <link rel="stylesheet icon" href="img/icon.ico" />
+
+    <!--bootstrap是一个CSS组件库-->
+    <!--cssfx CSS效果组件 -->
     <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
+    <!--Font Awesome是图片库-->
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!--jQuery 是js查询集成库，其中变量命名方法非常逆天-->  
     <script type="text/javascript" src="js/jQuery.js"></script>
     <script type="text/javascript" src="bootstrap/bootstrap.min.js"></script>
+    <!--Slideout.js 是移动端app导航式菜单，用以创建侧边栏 -->
     <link rel="stylesheet" href="css/slideout.css">
+
     <script>
         var now = new Date().getTime();
+        //动态选择最新版样式
         document.write('<link href="css/style.css?v=' + now + '" rel="stylesheet" type="text/css"/>');
     </script>
 </head>
 
 <body>
+    <!--左侧导航栏-->
     <nav id="menu" class="menu">
         <blockquote class="blockquote">▎ 工具</blockquote>
         <ul>
-            <a target="_blank" href="http://forsigner.com/browser-md5-file/">
-                <li class="sidenav-btn">查询文件MD5
-                    <p>forsigner的项目</p>
+            <a target="_blank" href="https://xingyueye5.github.io/2023/08/24/%E7%BD%91%E9%A1%B5%E5%AF%BC%E8%88%AA/">
+                <li class="sidenav-btn"> cs网页导航
+                    <p>计科学子工具</p>
                 </li>
             </a>
             <a target="_blank" href="http://www.speedtest.cn/">
@@ -82,14 +92,14 @@
         </ul>
         <blockquote class="blockquote">▎ 学习</blockquote>
         <ul>
-            <a target="_blank" href="https://www.youzack.com/">
-                <li class="sidenav-btn">Youzack
-                    <p>英语听背</p>
+            <a target="_blank" href="https://www.edx.org/search?tab=course/">
+                <li class="sidenav-btn">edX
+                    <p>海外高校线上课程</p>
                 </li>
             </a>
-            <a target="_blank" href="http://www.gavo.t.u-tokyo.ac.jp/ojad/chi/pages/home">
-                <li class="sidenav-btn">OJAD
-                    <p>在线日语声调词典</p>
+            <a target="_blank" href="https://www.coursera.org/">
+                <li class="sidenav-btn">Coursera
+                    <p>主流线上学习平台</p>
                 </li>
             </a>
             <a target="_blank" href="https://www.weblio.jp/">
@@ -345,6 +355,7 @@
         <p style="width:100%;text-align:center;margin:0 auto;font-size:14px;color:lightgray;">2020-2022 © <a style="color: lightgray;" href="http://www.coolapk.com/u/691518">小K同學</a><br>ALL RIGHTS RESERVED.</p>
     </nav>
 
+
     <!-- 主页面 -->
     <main id="main" class="panel">
         <!-- 天气 -->
@@ -390,12 +401,6 @@
                     <ul></ul>
                 </div>
 
-                <!-- 更新提示框 -->
-                <div id="alert" class="alert alert-info alert-dismissible" role="alert">
-                    <button type="button" id="closealert" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong>有新版本啦！</strong>赶紧清除缓存刷新看下吧！更新内容可查看<a target="_blank" href="https://kksan.top/f5404b68deeb4634b39dac0bc67ec693" class="alert-link">更新日志</a>。
-                </div>
-
             </div>
     </main>
 
@@ -407,16 +412,20 @@
             'padding': 290,
             'tolerance': 70
         });
+
+        //添加事件监听器用于切换状态栏
         document.querySelector('.js-slideout-toggle').addEventListener('click',
             function() {
                 slideout.toggle();
             });
         document.querySelector('.menu').addEventListener('click',
             function(eve) {
-                if (eve.target.nodeName === 'A') {
+                if (eve.target.nodeName === 'A') {  //关闭<a>标签内元素
                     slideout.close();
                 }
             });
+
+        //全局监听器，点击任意元素均会触发，然后关闭特定class内栏
         $(document).click(function(e) {
             var Class = $(e.target).attr("class");
             var Id = $(e.target).attr("id");

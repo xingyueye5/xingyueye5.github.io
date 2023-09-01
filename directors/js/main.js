@@ -233,19 +233,19 @@ $(function() {
             color: '#6182f6',
             placeholder: '夸克搜索...'
         }, {
-            name: 'taobao',
-            icon: 'img/taobao-xs.png',
-            searchlink: 'https://s.taobao.com/search',
+            name: 'kaifazhe',
+            icon: 'img/kaifazhe.png',
+            searchlink: 'https://kaifa.baidu.com/',
             searchname: 'q',
             color: '#FF5B00',
-            placeholder: '淘，我喜欢...'
+            placeholder: '开发者搜索...'
         }, {
-            name: 'jingdong',
-            icon: 'img/jingdong-xs.png',
-            searchlink: 'https://search.jd.com/Search',
-            searchname: 'keyword',
+            name: 'yandex',
+            icon: 'img/yandex.png',
+            searchlink: 'https://yandex.com/',
+            searchname: 'q',
             color: '#F30213',
-            placeholder: '多，快，好，省...'
+            placeholder: 'Yandex搜图...'
         }, {
             name: 'bilibili',
             icon: 'img/bilibili-xs.png',
