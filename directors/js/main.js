@@ -76,91 +76,61 @@ function rgb2hex(rgb) {
 $(function() {
         var bookmark = {
             data: [{
-                name: '开发日志',
-                link: 'https://kksan.top/f5404b68deeb4634b39dac0bc67ec693',
-                box_shadow: '#F18033',
-                icon: 'img/log.png',
+                name: '计科导航',
+                link: 'https://xingyueye5.github.io/2023/08/31/%E7%BD%91%E9%A1%B5%E5%AF%BC%E8%88%AA/',
+                box_shadow: '#A0891E',
+                icon: 'img/avatar.png',
             }, {
-                name: '酷安',
-                link: 'https://www.coolapk.com',
-                box_shadow: '#11B063',
-                icon: 'img/coolapk.png',
-            }, {
-                name: 'Via插件',
-                link: 'http://via-app.cn',
-                box_shadow: '#FA7199',
-                icon: 'img/via.png',
-            }, {
-                name: '今日热榜',
-                link: 'https://tophub.today/',
-                box_shadow: '#F2584A',
-                icon: 'img/headline.png',
+                name: 'Poe GPT',
+                link: 'https://poe.com/ChatGPT',
+                box_shadow: '#458B74',
+                icon: 'img/gpt.png',
             }, {
                 name: '知乎',
                 link: 'https://www.zhihu.com/',
                 box_shadow: '#0078D8',
                 icon: 'img/zhihulogo.png',
             }, {
-                name: '小米商城',
-                link: 'https://m.mi.com/',
-                box_shadow: '#F57923',
-                icon: 'img/mi.png',
+                name: '读论文',
+                link: 'https://typeset.io/',
+                box_shadow: '#7adcd9',
+                icon: 'img/scispace.png',
             }, {
-                name: 'unsplash',
-                link: 'https://unsplash.com/',
-                box_shadow: '#2C2C2C',
-                icon: 'img/unsplash.png',
+                name: 'AI prompt',
+                link: 'https://www.aishort.top/?tags=ai',
+                box_shadow: '#7adcd9',
+                icon: 'img/prompt.png',
             }, {
-                name: '豆瓣',
-                link: 'https://m.douban.com/',
-                box_shadow: '#37bf4c',
-                icon: 'img/douban.png',
+                name: '今日热榜',
+                link: 'https://tophub.today/',
+                box_shadow: '#F2584A',
+                icon: 'img/headline.png',
             }, {
-                name: '虎扑',
-                link: 'https://www.hupu.com/',
-                box_shadow: '#c01d2f',
-                icon: 'img/hupu.png',
+                name: '打字训练',
+                link: 'https://zty.pe/',
+                box_shadow: '#011918',
+                icon: 'img/type.png',
             }, {
-                name: '斗鱼',
-                link: 'https://www.douyu.com/',
-                box_shadow: '#fe7700',
-                icon: 'img/douyu.png',
+                name: '开发者搜索',
+                link: 'https://kaifa.baidu.com/',
+                box_shadow: '#20469b',
+                icon: 'img/kaifazhe-xs.png',
             }, {
                 name: 'CSDN',
                 link: 'https://www.csdn.net/',
                 box_shadow: '#c5000a',
                 icon: 'img/csdn.png',
             }, {
-                name: 'XDA',
-                link: 'https://www.xda-developers.com/',
-                box_shadow: '#AC6E2F',
-                icon: 'img/xda.png',
+                name: '不死鸟',
+                link: 'https://iui.su/fx/',
+                box_shadow: '#7adcd9',
+                icon: 'img/phoenix.png',
             }, {
-                name: '少数派',
-                link: 'https://sspai.com/',
-                box_shadow: '#D7191A',
-                icon: 'img/sspai.png',
-            }, {
-                name: '小众软件',
-                link: 'https://www.appinn.com/',
-                box_shadow: '#3279ea',
-                icon: 'img/xiaozhong.png',
-            }, {
-                name: '数字尾巴',
-                link: 'https://www.dgtle.com/',
-                box_shadow: '#62677b',
-                icon: 'img/shuziweiba.png',
-            }, {
-                name: '疫情跟踪',
-                link: 'https://app.21jingji.com/html/2020yiqing/',
-                box_shadow: '#7C5DC7',
-                icon: 'img/ding.png',
-            }, {
-                name: '疫情辟谣',
-                link: 'https://vp.fact.qq.com/home',
-                box_shadow: '#00A0E9',
-                icon: 'img/true.png',
-            }]
+                name: '速查表',
+                link: 'https://wangchujiang.com/reference/',
+                box_shadow: '#f9fafc',
+                icon: 'img/quick.png',
+            }, ]
         }
         for (var i = 0; i < bookmark.data.length; i++) {
             if (bookmark.data[i].name == 'Via插件') {
@@ -234,14 +204,14 @@ $(function() {
             placeholder: '夸克搜索...'
         }, {
             name: 'kaifazhe',
-            icon: 'img/kaifazhe.png',
+            icon: 'img/kaifazhe-xs.png',
             searchlink: 'https://kaifa.baidu.com/',
             searchname: 'q',
             color: '#FF5B00',
             placeholder: '开发者搜索...'
         }, {
             name: 'yandex',
-            icon: 'img/yandex.png',
+            icon: 'img/yandex-xs.png',
             searchlink: 'https://yandex.com/',
             searchname: 'q',
             color: '#F30213',
@@ -281,13 +251,6 @@ $(function() {
             searchname: 'q',
             color: '#1087eb',
             placeholder: '我们都是有问题的人...'
-        }, {
-            name: 'kuaidi',
-            icon: 'img/kuaidi-xs.png',
-            searchlink: 'https://m.kuaidi100.com/result.jsp',
-            searchname: 'nu',
-            color: '#317EE7',
-            placeholder: '搜快递...'
         }]
     }
     for (var i = 0; i < search.data.length; i++) { //添加搜索按钮
@@ -305,7 +268,7 @@ $(function() {
                     $('#Select').css('color', search.data[i].color); //选择器
                     $('#nav').css('display', 'none');
                     $('#folder').css('display', 'block');
-                    document.getElementById("Select").innerHTML = "<hr>书签 <img src='img/search-change.svg?v=2ae7ab8'>";
+                    document.getElementById("Select").innerHTML = "<hr>书签 ";
                     $("#inputText").attr("placeholder", search.data[i].placeholder);
                     $("#form").attr("action", search.data[i].searchlink);
                     $("#inputText").attr("name", search.data[i].searchname);
@@ -403,7 +366,7 @@ if (time < 5) {
 
 //导航、引擎选择器
 function select() {
-    $('#folder').css('display') == 'block' ? ($('#folder').css('display', 'none'), $('#nav').css('display', 'block'), document.getElementById("Select").innerHTML = "<hr>搜索引擎 <img src='img/search-change.svg?v=2ae7ab8'>") : ($('#nav').css('display', 'none'), $('#folder').css('display', 'block'), document.getElementById("Select").innerHTML = "<hr>书签 <img src='img/search-change.svg?v=2ae7ab8'>");
+    $('#folder').css('display') == 'block' ? ($('#folder').css('display', 'none'), $('#nav').css('display', 'block'), document.getElementById("Select").innerHTML = "<hr>搜索引擎 ") : ($('#nav').css('display', 'none'), $('#folder').css('display', 'block'), document.getElementById("Select").innerHTML = "<hr>书签");
 }
 //导航、引擎选择器结束
 
