@@ -175,12 +175,12 @@ $(function() {
             color: '#5f01d1',
             placeholder: 'Yahoo~'
         }, {
-            name: 'magi',
+            name: '360',
             icon: 'img/magi-xs.png',
             searchlink: 'https://magi.com/search',
             searchname: 'q',
             color: 'black',
-            placeholder: 'Mag[i]...'
+            placeholder: '360搜索...'
         }, {
             name: 'sougou',
             icon: 'img/sougou-xs.png',
