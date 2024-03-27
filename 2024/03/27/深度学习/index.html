@@ -3,7 +3,7 @@
 <html lang="zh">
     <head>
         <meta charset="utf-8" />
-        <title>my post | Zyy Web</title>
+        <title>深度学习 | Zyy Web</title>
         <meta name="author" content="Yiyang Zou" />
         <meta name="description" content="Welcome here~" />
         <meta name="keywords" content="" />
@@ -152,7 +152,7 @@
             <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
                 <div class="article">
     <div>
-        <h1>my post</h1>
+        <h1>深度学习</h1>
     </div>
     <div class="info">
         <span class="date">
@@ -171,7 +171,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Deep-Learning/" style="color: #03a9f4">Deep Learning</a>
+                <a href="/tags/ML/" style="color: #ffa2c4">ML</a>
             </span>
             
         </span>
@@ -179,32 +179,13 @@
     </div>
     
     <div class="content" v-pre>
-        <p>深度学习常见语法</p>
+        <p>深度学习板子</p>
 <span id="more"></span>
 
-<pre><code class="python">class attention():
-    self.id=id
-    self.name=null
-    
-</code></pre>
-<pre><code class="C++">#inclde&lt;iostream&gt;
-using namespace std;
-int main()&#123;
-    return 0;
-&#125;
-</code></pre>
-<p>$ \sum_{i&#x3D;1}x^2+3$</p>
-<p>$ \sum_x^1+x x^2-1$</p>
-<p>$$1.(AC \times AB)(AD \times AB)&lt;0 (1) \quad(CACD)(CB \times CD)&lt;0 (2)$$</p>
-<p>$2. \quad (1)或(2)式子有一个取等,或者全取等而且min(x3,x4)&gt;max(x1,x2)（此时意味着两线段共线）$</p>
-<p>$注意到AC \times AB&#x3D;0表示平行,&lt;0表示AB在AC顺时针方向180^{\circ}内,&gt;0则相反$</p>
-<p>$1.\quad (AC \times AB)<em>(AD \times AB)&lt;0 \quad(1)\quad (CA \times CD)</em>(CB \times CD)&lt;0 \quad(2)$</p>
-<p>$$ \sum_x^1+x x^2-1 \ A\in B$$</p>
-<p>Pytorch 特点：训练时需要加上 <code>ls.backward()</code> 而用训练结果作为测试集时我们应该用<code>ls.detach.numpy()</code>消除梯度并转换为numpy数组便于观测图像</p>
-<p>auto_grad : <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43328040/article/details/108421469">https://blog.csdn.net/qq_43328040/article/details/108421469</a></p>
-<p>一般而言，输入张量t维度为[B,C,H,W],分别表示批大小，词嵌入深度，高和宽</p>
-<h4 id="1、常见数据处理"><a href="#1、常见数据处理" class="headerlink" title="1、常见数据处理"></a>1、常见数据处理</h4><p><strong>torch</strong></p>
-<p><code>torch.full(shape,num)</code> 用于数据填充</p>
+<h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><p><strong>Pytorch 特点</strong>：训练时需要加上 <code>ls.backward()</code> 而用训练结果作为测试集时我们应该用<code>ls.detach.numpy()</code>消除梯度并转换为numpy数组便于观测图像</p>
+<p><strong>auto_grad</strong> : <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43328040/article/details/108421469">https://blog.csdn.net/qq_43328040/article/details/108421469</a></p>
+<p><strong>张量形状：</strong>一般而言，输入张量t维度为[B,C,H,W],分别表示批大小，词嵌入深度，高和宽</p>
+<h4 id="1、常见数据处理"><a href="#1、常见数据处理" class="headerlink" title="1、常见数据处理"></a>1、常见数据处理</h4><h3 id="torch"><a href="#torch" class="headerlink" title="torch"></a>torch</h3><p><code>torch.full(shape,num)</code> 用于数据填充</p>
 <p><code>torch.repeat_interleave(x,nums)</code> 用于得到重复nums次的x</p>
 <p><code>y=x.torch.reshape(-1,3)</code>  <code>x.view(-1,3)</code>  view会修改张量本身，reshape不会</p>
 <p><code>torch.cat([torch1,torch2],dim=-1)</code> 表示在最后一个维度上对两个张量进行连接</p>
@@ -215,6 +196,30 @@ int main()&#123;
 <p><code>permute(0,2,1)</code> :用于将张量原来顺序调整成函数中定义样子</p>
 <p><code>flatten(2), flatten(0,1)</code> :左边用于把第三个维度后全部压缩为一个维度，右边表示把第一第二两个维度压缩</p>
 <p>广播机制：torch_a+torch_b时如果维度不一致会自动把缺少的那个维度在一个方向进行扩展，然后再相加。对于张量乘法，实际上是对两个张量最后两个维度进行矩阵乘法。</p>
+<h3 id="数据选取"><a href="#数据选取" class="headerlink" title="数据选取"></a>数据选取</h3><p><code>np.argsort(x)</code> :本来用sort()会排序数组，现在用argsort会得到排序后的索引（0~n-1)</p>
+<p><code>random.sample(range(1,N), k)</code> 从list序列中随机选k个不重复的</p>
+<p>高级索引（Fancy Indexing）：比切片索引更加灵活</p>
+<pre><code class="Python">## 1、提取被3整除的元素
+list=range(1,100)
+musk=list%3==0
+get_divid_by3=list[musk]
+## 或 get_divid_by3=[i for i in list if i%3==0]
+
+## 2、掩码操作
+patches: (batch_size, num_patches, patch_height, patch_width)
+mask_ind:(batch_size,num_masked)
+batch_ind:(batch_size,1)
+mask_patches=patches[batch_ind,mask_ind]
+这里像batch_ind:(batch_ind,1)第一个维度用于batch_size对齐，第二个用于筛选。随后再对已筛选好的用num_masked进一步筛
+</code></pre>
+<h3 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h3><p><code>x @ y=torch.matmul(x,y)</code>表示矩阵乘法</p>
+<p><code>np.linalg.matrix_power(P, 2023)</code> 表示矩阵自乘2023次</p>
+<h3 id="元素选取"><a href="#元素选取" class="headerlink" title="元素选取"></a>元素选取</h3><p><code>x[:m]</code> 表示选取前m行元素</p>
+<p><code>x[::2]</code> 表示从左到右每两个元素选一个（相当于选偶数位）</p>
+<p><code>x[::-1]</code> 表示逆序选择所有元素</p>
+<p><code>x[-1:]</code> 表示选取x最后一个元素，并且保留维度。</p>
+<h3 id="掩码"><a href="#掩码" class="headerlink" title="掩码"></a>掩码</h3><p><code>y_embed = not_mask.cumsum(1, dtype=torch.float32)</code> 其中.cumsum用于沿着某一维度计算累加和，比如[1,0,1,1]→[1,1,2,3]</p>
+<h4 id="2、常用库函数"><a href="#2、常用库函数" class="headerlink" title="2、常用库函数"></a>2、常用库函数</h4><p><code>nn.Linear</code> 函数对输入向量最后一个维度进行处理，张量乘法是针对最后两个维度进行处理</p>
 
     </div>
     
