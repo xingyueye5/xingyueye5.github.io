@@ -181,13 +181,14 @@
     <div class="content" v-pre>
         <p>一些刷题板子</p>
 <span id="more"></span>
+
 <h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><p><strong>POJ上面刷题一定要注意：自己定义一个类，在自己的类里面写函数（主函数里面只能调用static函数）！！</strong></p>
 <p><strong>然后java ‘ ‘和“ ”完全不一样！！</strong></p>
 <p>实际上java里面类似C++里面的vector就是ArrayList，然后对象链表实际上可以用哈希表替代，哈希表除了不能排序以外都比较好用（比如说可以用map.getOrDefault()得到对应值）这样甚至可以替代动态规划</p>
 <ul>
-<li>CSP模板 </li>
+<li>CSP模板</li>
 </ul>
-<pre><code class="lang-java">Scanner in=new Scanner(System.in)
+<pre><code class="java">Scanner in=new Scanner(System.in)
     int num=in.nextInt()
     double num=in.nextDouble()
     String str=in.next()
@@ -197,7 +198,7 @@ while(! in.hasNext(&#39;0&#39;))
 <ul>
 <li><p>String类：(不可变类，里面的元素不会被修改，而是另生成一个新的实例对象)</p>
 <p>StringBuffer、StringBulider为可变类,再用toString()返回。</p>
-<pre><code class="lang-java">st.length();//求长度
+<pre><code class="java">st.length();//求长度
 st.charAt(n);st.substring(n)//求第n位的数
 String st=&quot;streets&quot;;String st=new String(&quot;streets&quot;)//赋值
 一些函数：
@@ -220,20 +221,18 @@ Character.isLetter()用于判断是否字符
     System.out.print(String.format(&quot;%.2f&quot;,num))
 </code></pre>
 </li>
-</ul>
-<ul>
 <li><p>List类： </p>
-<pre><code class="lang-java">List&lt;Integer&gt; li=new LinkedList&lt;Integer&gt; () / new ArrayList&lt;Integer&gt; ()
+<pre><code class="java">List&lt;Integer&gt; li=new LinkedList&lt;Integer&gt; () / new ArrayList&lt;Integer&gt; ()
 //或者这样初始化：
     List&lt;Integer&gt; li=new LinkedList&lt;&gt;(Arrays.asList(&#39;1&#39;,&#39;2&#39;,&#39;3&#39;))
-li.add()    li.isEmpty()    li.size()    li.contains()    li.remove(int k)    
+li.add()	li.isEmpty()	li.size()	li.contains()	li.remove(int k)    
 li.get(K)  //用于获取第K位数
 LinkedLIst有这两个函数：li.getFirst();li.getLast()  
 //一系列操作：
-    list.add(element,pos)   list.set(oldval,newval) list.remove(pos);                   list.indexof(val)   int[] values = (int[])list.toArray(typeof(int));
+    list.add(element,pos)   list.set(oldval,newval) list.remove(pos);		           list.indexof(val)   int[] values = (int[])list.toArray(typeof(int));
 //list类可以排序！ 直接list.sort()
 //对象列表运用： list.sort(Comparator.comparing(pair-&gt;pair.time))排序
-
+    
 //关于toArray():
     数组的定义不能用基本类型，必须要用包装类型，如int就报错。    
     Integer[] i =new Integer[set.size()];  
@@ -247,24 +246,31 @@ LinkedLIst有这两个函数：li.getFirst();li.getLast()
 </code></pre>
 </li>
 <li><p>Deque(双端队列）:</p>
-<p>```java<br>Stack<Integer>stk=new Stack&lt;&gt;()<br>stk.push()   stk.pop()   stk.empty() stk.peek()</p>
+<pre><code class="java">Stack&lt;Integer&gt;stk=new Stack&lt;&gt;()
+stk.push()   stk.pop()   stk.empty() stk.peek()
+    
+
+Deque&lt;Integer&gt; path = new ArrayDeque&lt;&gt;();
+Deque&lt;Integer&gt; path = new LinkedList&lt;&gt;();
+path.addLast   path.addFirst() path.removeLast() path.removeFirst()
+path.getFirst() path.isEmpty()
+PriorityQueue&lt;Integer&gt; minHeap = new PriorityQueue&lt;&gt;(Comparator.reverseOrder());
+PriorityQueue&lt;Integer&gt;minHeap =new PriorityQueue&lt;&gt;(new Comparator&lt;&gt;()&#123;
+    ...
+&#125;);
+offer、add/poll、remove  peek()
+</code></pre>
 </li>
-</ul>
-<p>  Deque<Integer> path = new ArrayDeque&lt;&gt;();<br>  Deque<Integer> path = new LinkedList&lt;&gt;();<br>  path.addLast   path.addFirst() path.removeLast() path.removeFirst()<br>  path.getFirst() path.isEmpty()<br>  PriorityQueue<Integer> minHeap = new PriorityQueue&lt;&gt;(Comparator.reverseOrder());<br>  PriorityQueue<Integer>minHeap =new PriorityQueue&lt;&gt;(new Comparator&lt;&gt;(){<br>      …<br>  });<br>  offer、add/poll、remove  peek()</p>
-<pre><code>
-
-
-- 数组操作：
-
-  ```java
-  Arrays.sort(a);        Arrays.sort(a,collections.reverseOrder())//逆序
-  Arrays.fill(a,m);  //全填充m
-  Arrays.asList()    //数组化链表
-  增强for循环：for(int c :array)&#123;&#125;
-  以及双for循环 for(i=0,j=0;i&lt;n,j&lt;3n/2;i++,j+=2)
-</code></pre><ul>
+<li><p>数组操作：</p>
+<pre><code class="java">Arrays.sort(a);		Arrays.sort(a,collections.reverseOrder())//逆序
+Arrays.fill(a,m);  //全填充m
+Arrays.asList()    //数组化链表
+增强for循环：for(int c :array)&#123;&#125;
+以及双for循环 for(i=0,j=0;i&lt;n,j&lt;3n/2;i++,j+=2)
+</code></pre>
+</li>
 <li><p>Hash Map:将Key值映射到内存value位置上，位置要用put自行分配，不要产生hash冲突</p>
-<pre><code class="lang-java">import java.util.HashMap;
+<pre><code class="java">import java.util.HashMap;
 import java.util.Map;
 
 Set&lt;Pair&lt;Integer,Integer&gt;&gt;set=new HashSet&lt;&gt;()
@@ -272,7 +278,7 @@ Set&lt;Integer&gt; set=new TreeSet&lt;&gt;()//默认已经排好序
 HashMap&lt;String, Integer&gt; Ages = new HashMap&lt;String, Integer&gt;();   (直接Map&lt;&gt;更好)
 //一些函数：
 add()  remove()  contains()
-
+    
 //hashSet一些函数：
     map.keySet(),map.values()
     size() isEmpty() containsKey(Key)  containsValue() remove(Key) get(Key) put(Key,value)（以新替旧）
@@ -286,8 +292,8 @@ set.add(new Point(x,y))
 <li><p>comparator排序：</p>
 </li>
 </ul>
-<pre><code class="lang-java">Arrays.sort(arr,(o1,o2)-&gt;&#123;return o1-o2;&#125;)
-
+<pre><code class="java">Arrays.sort(arr,(o1,o2)-&gt;&#123;return o1-o2;&#125;)
+    
 Arrays.sort(arr, new Comparator&lt;int[]&gt;()&#123;
     @Override
     public int compare(int []o1,int[]o2)&#123;
@@ -302,14 +308,14 @@ Arrays.sort(arr, new Comparator&lt;int[]&gt;()&#123;
 <li><p>类型转换</p>
 </li>
 </ul>
-<pre><code class="lang-java">(int)double,   double(int)  //用于int,double转换
+<pre><code class="java">(int)double,   double(int)  //用于int,double转换
 String.valueOf(int)  //用于将int转换为String
 Integer.parseInt(String)  //用于将String转换为int
 </code></pre>
 <ul>
 <li><p>算法：(感觉做题的核心是恰当建模进行分类)</p>
 <p>1、DP利用数组代替递归法或者暴力枚举法：</p>
-<p>2、三元化为二元滑动数组   /  滑动窗口</p>
+<p>2、三元化为二元滑动数组   &#x2F;  滑动窗口</p>
 <p>3、回溯类问题用栈或者递归分析，还有回溯剪枝法(一般遍历用头遍历，求可能的总数用尾遍历)</p>
 <p><a target="_blank" rel="noopener" href="https://imgse.com/i/pPwvkL9"><img src="https://s1.ax1x.com/2023/08/31/pPwvkL9.png" alt="pPwvkL9.png"></a></p>
 <p>4、构建预处理数组</p>
@@ -321,53 +327,53 @@ Integer.parseInt(String)  //用于将String转换为int
 <li>合二为一，比如说输出x,y,我们改成px+y，那么由px+y可以反推出x,y.</li>
 </ul>
 <p>8、数的类型与长度需要特别注意，比如说long型变量比int大得多，从而可以跑通很多大数据。如果long也过不了，可以尝试改进一下运算的顺序防止出现正向溢出</p>
-<pre><code class="lang-java">递归模板：需要一个类似栈的容器以及当前位置i,最后回溯
+<pre><code class="java">递归模板：需要一个类似栈的容器以及当前位置i,最后回溯
  Iterate(array,container(stack、list),number)
 </code></pre>
 <p>  8、四边形不等式<a target="_blank" rel="noopener" href="https://www.cnblogs.com/guanjinquan/p/15908394.html#:~:text=%E5%9B%9B%E8%BE%B9%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F%E6%98%AF%E4%B8%80%E7%A7%8D%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95%EF%BC%8C%E9%80%9A%E5%B8%B8%E5%88%A9%E7%94%A8%E5%85%B6%E6%9D%A5%E8%AF%81%E6%98%8E%E5%86%B3%E7%AD%96%E5%8D%95%E8%B0%83%E6%80%A7%EF%BC%8C%E4%BB%A5%E4%BC%98%E5%8C%96%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6,%28%E5%87%8F%E5%B0%91%E6%9E%9A%E4%B8%BE%E5%86%B3%E7%AD%96%E7%82%B9%E7%9A%84%E6%97%B6%E9%97%B4%E4%BB%8E%E8%80%8C%E9%99%8D%E4%B8%80%E4%B8%AA%E6%97%B6%E9%97%B4%E7%BB%B4%E5%BA%A6%29%E3%80%82">这里</a></p>
-<p>$dp_{i}=min_{j&lt;i}\left\{dp_{j}+w(j,i)\right\}$</p>
+<p>$dp_{i}&#x3D;min_{j&lt;i}\left{dp_{j}+w(j,i)\right}$</p>
 <p>$w满足w(i,j)+w(i+1,j+1)&lt;w(i,j+1)+w(i+1,j)\implies dp_i决策点pi是单调递增的$</p>
+<p>9、单调栈：单调递减或者单调递增排序，出栈了就不会进来‘</p>
+<p>10、前缀和、DP（前位或末位DP）应该是最重要的两个方法</p>
+<p>11、并查集</p>
+<p>每次出现a-&gt;b时都找到a,b根节点a1,b1判断它们是否相等。如果相等那么不更新，否则更新为a1-&gt;b1</p>
+<pre><code class="C++">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+const int maxn=1e6+10;
+int fa[maxn];
+int rank[maxn];//记录节点深度。
+void init(int n)&#123;
+    for(int i=1;i&lt;=n;i++) fa[i]=i;
+&#125;
+int find(int u)&#123;
+    return fa[u]==u?fa[u]:fa[u]=find(fa[u]);
+&#125;
+void merge(int u,int v)&#123;
+    int t1=find(u);
+    int t2=find(v);
+    if(t1!=t2) &#123;//启发式算法的核心代码，将节点深度小的并到节点深度大的上面。
+        if(rank[t1]&gt;rank[t2])&#123;
+            f[t2]=t1;
+        &#125;
+        else if(rank[t1]&lt;rank[t2])&#123;
+            f[t1]=t2;
+        &#125;
+        else &#123;
+            f[t2]=t1;
+            rank[t1]++;
+    &#125;
+    &#125;	
+&#125;
+</code></pre>
+<p>12、求最小值可能的思路：框定范围进行二分查找判断是否可以接收</p>
 </li>
 </ul>
-<p>  9、单调栈：单调递减或者单调递增排序，出栈了就不会进来‘</p>
-<p>  10、前缀和、DP（前位或末位DP）应该是最重要的两个方法</p>
-<p>  11、并查集</p>
-<p>  每次出现a-&gt;b时都找到a,b根节点a1,b1判断它们是否相等。如果相等那么不更新，否则更新为a1-&gt;b1</p>
-<pre><code class="lang-C++">  #include&lt;bits/stdc++.h&gt;
-  using namespace std;
-  const int maxn=1e6+10;
-  int fa[maxn];
-  int rank[maxn];//记录节点深度。
-  void init(int n)&#123;
-      for(int i=1;i&lt;=n;i++) fa[i]=i;
-  &#125;
-  int find(int u)&#123;
-      return fa[u]==u?fa[u]:fa[u]=find(fa[u]);
-  &#125;
-  void merge(int u,int v)&#123;
-      int t1=find(u);
-      int t2=find(v);
-      if(t1!=t2) &#123;//启发式算法的核心代码，将节点深度小的并到节点深度大的上面。
-          if(rank[t1]&gt;rank[t2])&#123;
-              f[t2]=t1;
-          &#125;
-          else if(rank[t1]&lt;rank[t2])&#123;
-              f[t1]=t2;
-          &#125;
-          else &#123;
-              f[t2]=t1;
-              rank[t1]++;
-      &#125;
-      &#125;    
-  &#125;
-</code></pre>
-<p>  12、求最小值可能的思路：框定范围进行二分查找判断是否可以接收</p>
 <h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><p><strong>小心数组下标越界，这个不报错！！！</strong></p>
 <p><strong>然后memset只能输入0、1</strong></p>
 <p><strong>pop()没有返回值</strong></p>
 <p><strong>substr()是位置与长度！！</strong></p>
 <p>然后做题时记得检查边界条件以及末尾！！</p>
-<pre><code class="lang-C++">#include&lt;vector&gt;
+<pre><code class="C++">#include&lt;vector&gt;
 #include&lt;algorithm&gt;
 
 //vector赋值而不是传递引用
@@ -379,9 +385,9 @@ vec.empty();//判断是否为空
 vec.insert(1,aaa);
 vec.erase(4)
 指针nullptr
-
+    
 sort(a,a+n)表示对a[0]~a[n-1]排序
-
+    
 stack:
 stack&lt;int&gt;mystack;
 stack.push(1);stack.pop();stack.size();
@@ -389,12 +395,12 @@ deque:
 deque&lt;int&gt;mydeque;
 deque.size()
 deque.empty();deque.back();deque.push_back(1);deque.pop_back()//最后一个元素
-deque.front();deque.push_front();deque.pop_front();
+deque.front();deque.push_front();deque.pop_front();   
 </code></pre>
 <ul>
 <li>auto lambda函数：</li>
 </ul>
-<pre><code class="lang-C++">auto fun =[](int x)&#123;return x*x;&#125;;//特点就是不需要返回值
+<pre><code class="C++">auto fun =[](int x)&#123;return x*x;&#125;;//特点就是不需要返回值
 auto fun=[&amp;](int a,int b)&#123;int temp=b;b=a;a=temp;&#125;;//这里lambda函数传递引用
 
 function&lt;int(int,int)&gt; fun=[&amp;](int x,int y)-&gt;int&#123;
@@ -404,28 +410,28 @@ function&lt;int(int,int)&gt; fun=[&amp;](int x,int y)-&gt;int&#123;
 <ul>
 <li>二维数组排序：</li>
 </ul>
-<pre><code class="lang-C++">static bool cmp(vector&lt;int&gt; a, vector&lt;int&gt; b)
+<pre><code class="C++">static bool cmp(vector&lt;int&gt; a, vector&lt;int&gt; b)
 &#123;
     if(a[0] != b[0]) return a[0] &gt; b[0];
     if(a[1] != b[1]) return a[1] &gt; b[1];
     if(a[2] != b[2]) return a[2] &gt; b[2];
 &#125;
-
+ 
 int main()
 &#123;
     vector&lt;vector&lt;int&gt;&gt; vec = &#123; &#123;1,4,3&#125;, &#123;1,4,7&#125; , &#123;1,3,5&#125; , &#123;2,9,4&#125; , &#123;2,5,8&#125; , &#123;3,9,6&#125; &#125;;
-
+    
     sort(vec.begin(), vec.end(), cmp);
-
+ 
     for(auto p : vec)
         cout&lt;&lt;p[0]&lt;&lt;&#39; &#39;&lt;&lt;p[1]&lt;&lt;&#39; &#39;&lt;&lt;p[2]&lt;&lt;endl;
-
+ 
     return 0;
 </code></pre>
 <ul>
 <li>优先队列：</li>
 </ul>
-<pre><code class="lang-C++">priority_queue&lt;myclass,    vector&lt;myclass&gt;,cmp&gt;pq;
+<pre><code class="C++">priority_queue&lt;myclass,	vector&lt;myclass&gt;,cmp&gt;pq;
 pq.push();pq.pop();pq.top();pq.empty();
 
 //cmp类：
@@ -441,7 +447,7 @@ pq.push();pq.pop();pq.front();pq.back();
 <ul>
 <li>结构体用法：</li>
 </ul>
-<pre><code class="lang-C++">struct robot&#123;
+<pre><code class="C++">struct robot&#123;
     int pos;
     int idx;
     int health;
@@ -451,7 +457,7 @@ pq.push();pq.pop();pq.front();pq.back();
 <ul>
 <li>然后对下表进行排序可以这样：</li>
 </ul>
-<pre><code class="lang-C++">iota(arr,arr+n,0);
+<pre><code class="C++">iota(arr,arr+n,0);
 sort(arr,arr+n,[&amp;](int i,int j)&#123;
    return pos[i]&lt;pos[j]; 
 &#125;);
@@ -460,14 +466,14 @@ sort(arr,arr+n,[&amp;](int i,int j)&#123;
 <ul>
 <li>字符串</li>
 </ul>
-<pre><code class="lang-C++">isdigit()  isalpha()
+<pre><code class="C++">isdigit()  isalpha()
 s.substr(pos,len)//跟java不一样！！！
 new_str=String(str.rbegin(),str.begin())
 </code></pre>
 <h2 id="算法思想分析"><a href="#算法思想分析" class="headerlink" title="算法思想分析"></a>算法思想分析</h2><ul>
 <li>CSP 202212-3 关于棋盘对角线Z字形遍历问题处理：</li>
 </ul>
-<pre><code class="lang-java">for(int i=0;i&lt;2n-1;i++)
+<pre><code class="java">for(int i=0;i&lt;2n-1;i++)
     for(int j=0;j&lt;=i;j++)&#123;
         int x=i%2==0?i-j:j;
         int y=i%2==1?i-j:j;
@@ -485,7 +491,7 @@ new_str=String(str.rbegin(),str.begin())
 </ul>
 <p>树状数组： 给定区间[a,b] 用于处理多次修改值时求其中子区间和的问题。我们用中间数组V[n]记录局部和。</p>
 <p><img src="https://s1.ax1x.com/2023/08/31/pPwj5IP.png" alt="pPwj5IP.png"></p>
-<pre><code class="lang-java">int lowbit(x)&#123;return x^-x&#125;  //用于求出x内只保留末尾1的数
+<pre><code class="java">int lowbit(x)&#123;return x^-x&#125;  //用于求出x内只保留末尾1的数
 //首先：对xi更新意味着我们需要对一系列Vn进行更新，然后为了求出子区间和，我们利用前缀和化成求Si的问题。
 //在位置i加k：
 void update(int i,int k)&#123;
@@ -510,11 +516,11 @@ int getsum(int i)&#123;
 <p>充要条件：</p>
 <p>$1.\quad (AC \times AB)<em>(AD \times AB)&lt;0 \quad(1)\quad (CA \times CD)</em>(CB \times CD)&lt;0 \quad(2)$</p>
 <p>$2. \quad (1)或(2)式子有一个取等,或者全取等而且min(x3,x4)&gt;max(x1,x2)（此时意味着两线段共线）$</p>
-<p>$注意到AC \times AB=0表示平行,<0表示AB在AC顺时针方向180^{\circ}内,>0则相反$</p>
+<p>$注意到AC \times AB&#x3D;0表示平行,&lt;0表示AB在AC顺时针方向180^{\circ}内,&gt;0则相反$</p>
 <ul>
 <li>二分查找模板：(&lt;就h掉，&gt;就l增)</li>
 </ul>
-<pre><code class="lang-java">//&lt;=a 的max:
+<pre><code class="java">//&lt;=a 的max:
 int l,h,mid=(l+h+1)/2;
 while(l&lt;h)&#123;
     if(arr[mid]&gt;a)&#123;

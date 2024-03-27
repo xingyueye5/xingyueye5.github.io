@@ -163,10 +163,59 @@
         </span>
         
         
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/Deep-Learning/" style="color: #03a9f4">Deep Learning</a>
+            </span>
+            
+        </span>
+        
     </div>
     
     <div class="content" v-pre>
-        
+        <p>深度学习常见语法</p>
+<span id="more"></span>
+
+<pre><code class="python">class attention():
+    self.id=id
+    self.name=null
+    
+</code></pre>
+<pre><code class="C++">#inclde&lt;iostream&gt;
+using namespace std;
+int main()&#123;
+    return 0;
+&#125;
+</code></pre>
+<p>$ \sum_{i&#x3D;1}x^2+3$</p>
+<p>$ \sum_x^1+x x^2-1$</p>
+<p>$$1.(AC \times AB)(AD \times AB)&lt;0 (1) \quad(CACD)(CB \times CD)&lt;0 (2)$$</p>
+<p>$2. \quad (1)或(2)式子有一个取等,或者全取等而且min(x3,x4)&gt;max(x1,x2)（此时意味着两线段共线）$</p>
+<p>$注意到AC \times AB&#x3D;0表示平行,&lt;0表示AB在AC顺时针方向180^{\circ}内,&gt;0则相反$</p>
+<p>$1.\quad (AC \times AB)<em>(AD \times AB)&lt;0 \quad(1)\quad (CA \times CD)</em>(CB \times CD)&lt;0 \quad(2)$</p>
+<p>$$ \sum_x^1+x x^2-1 \ A\in B$$</p>
+<p>Pytorch 特点：训练时需要加上 <code>ls.backward()</code> 而用训练结果作为测试集时我们应该用<code>ls.detach.numpy()</code>消除梯度并转换为numpy数组便于观测图像</p>
+<p>auto_grad : <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43328040/article/details/108421469">https://blog.csdn.net/qq_43328040/article/details/108421469</a></p>
+<p>一般而言，输入张量t维度为[B,C,H,W],分别表示批大小，词嵌入深度，高和宽</p>
+<h4 id="1、常见数据处理"><a href="#1、常见数据处理" class="headerlink" title="1、常见数据处理"></a>1、常见数据处理</h4><p><strong>torch</strong></p>
+<p><code>torch.full(shape,num)</code> 用于数据填充</p>
+<p><code>torch.repeat_interleave(x,nums)</code> 用于得到重复nums次的x</p>
+<p><code>y=x.torch.reshape(-1,3)</code>  <code>x.view(-1,3)</code>  view会修改张量本身，reshape不会</p>
+<p><code>torch.cat([torch1,torch2],dim=-1)</code> 表示在最后一个维度上对两个张量进行连接</p>
+<p><code>torch.stack()</code> :表示在新的维度上对两个张量进行连接</p>
+<p><strong><code>unsqueeze(1)</code></strong>: 添加维度，比方说原张量[h,w],现在变成[h,1,w]</p>
+<p><code>self.weight[:, None, None]</code> ：同样用于扩展维度，用None填充</p>
+<p><code>arr[None,:]</code> :对一维向量arr来说这个式子表示将arr转置，添加了一个维度</p>
+<p><code>permute(0,2,1)</code> :用于将张量原来顺序调整成函数中定义样子</p>
+<p><code>flatten(2), flatten(0,1)</code> :左边用于把第三个维度后全部压缩为一个维度，右边表示把第一第二两个维度压缩</p>
+<p>广播机制：torch_a+torch_b时如果维度不一致会自动把缺少的那个维度在一个方向进行扩展，然后再相加。对于张量乘法，实际上是对两个张量最后两个维度进行矩阵乘法。</p>
+
     </div>
     
     
